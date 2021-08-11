@@ -21,9 +21,19 @@ public class AthenaQueryExecutor {
             ResultSet rs = statement.executeQuery(QUERY);
             ResultSetMetaData resultSetMetaData = rs.getMetaData();
 
+            System.out.println(String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s", "marketplace",
+                    "review_id", "product_id", "product_title", "product_category", "vine",
+                    "verified_purchase", "review_headline", "review_date"));
             while (rs.next()){
                 System.out.println(rs.getString(1) + "\t" +
-                        rs.getString(3));
+                        rs.getString(3) + "\t" +
+                        rs.getString(4) + "\t" +
+                        rs.getString(6) + "\t" +
+                        rs.getString(7) + "\t" +
+                        rs.getString(11) + "\t" +
+                        rs.getString(12) + "\t" +
+                        rs.getString(13) + "\t" +
+                        rs.getString(15));
             }
         }catch (Exception e){
             e.printStackTrace();

@@ -1,0 +1,58 @@
+ATHENA ANOTAÇÕES
+
+No meu S3 criei o bucket teste-athena-10 com subpastas dentro dele(identificador=1 e identificador=2).
+
+SHOW CREATE TABLE teste_athena_10;
+
+CREATE EXTERNAL TABLE `teste_athena_10`(
+  `marketplace` string,
+  `customer_id` bigint,
+  `review_id` string,
+  `product_id` string,
+  `product_parent` bigint,
+  `product_title` string,
+  `product_category` string,
+  `star_rating` bigint,
+  `helpful_votes` bigint,
+  `total_votes` bigint,
+  `vine` string,
+  `verified_purchase` string,
+  `review_headline` string,
+  `review_body` string,
+  `review_date` string)
+PARTITIONED BY (
+  `identificador` string)
+ROW FORMAT DELIMITED
+  FIELDS TERMINATED BY '\t'
+STORED AS INPUTFORMAT
+  'org.apache.hadoop.mapred.TextInputFormat'
+OUTPUTFORMAT
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  's3://teste-athena-10/'
+TBLPROPERTIES (
+  'CrawlerSchemaDeserializerVersion'='1.0',
+  'CrawlerSchemaSerializerVersion'='1.0',
+  'UPDATED_BY_CRAWLER'='teste-crawler',
+  'areColumnsQuoted'='false',
+  'averageRecordSize'='343',
+  'classification'='csv',
+  'columnsOrdered'='true',
+  'compressionType'='none',
+  'delimiter'='\t',
+  'objectCount'='1',
+  'recordCount'='7',
+  'sizeKey'='2707',
+  'skip.header.line.count'='1',
+  'typeOfData'='file')
+
+SELECT *
+FROM "athena_db"."teste_athena_10";
+
+SELECT *
+FROM "athena_db"."teste_athena_10" where identificador = '1';
+
+SELECT *
+FROM "athena_db"."teste_athena_10" where identificador = '2';
+
+MSCK REPAIR TABLE teste_athena_10;

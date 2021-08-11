@@ -7,12 +7,12 @@ import static me.brunosantana.aws.athena.AthenaConstants.*;
 
 public class AthenaQueryExecutor {
 
-    public void execute(){
+    public void execute(String accessKey, String secretKey){
         Properties props = new Properties();
         Connection conn = null;
         Statement statement = null;
         try{
-            setProperties(props);
+            setProperties(props, accessKey, secretKey);
             //load driver class
             Class.forName(DRIVER_CLASS);
             conn = DriverManager.getConnection(CONNECTION_URL, props);
@@ -33,10 +33,10 @@ public class AthenaQueryExecutor {
         }
     }
 
-    private void setProperties(Properties properties){
+    private void setProperties(Properties properties, String accessKey, String secretKey){
         //set System properties
-        System.setProperty("aws.accessKeyId", AWS_ACCESS_KEY);
-        System.setProperty("aws.secretKey", AWS_SECRET_KEY);
+        System.setProperty("aws.accessKeyId", accessKey);
+        System.setProperty("aws.secretKey", secretKey);
         //set Athena props
         properties.setProperty("S3OutputLocation", S3_OUTPUT_LOCATION);
         properties.setProperty("AwsCredentialsProviderClass", "com.simba.athena.amazonaws.auth.SystemPropertiesCredentialsProvider");

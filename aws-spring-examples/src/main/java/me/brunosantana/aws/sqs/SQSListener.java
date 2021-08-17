@@ -3,6 +3,7 @@ package me.brunosantana.aws.sqs;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import me.brunosantana.aws.sqs.dto.Message;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.messaging.handler.annotation.Headers;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -28,6 +29,10 @@ public class SQSListener {
         String eventName = root.at("/Records/0/s3/configurationId").asText();
         System.out.println("Nome do arquivo: " + fileName);
         System.out.println("Nome do evento: " + eventName);
+
+        Message sqsMessage = mapper.readValue(message, Message.class);
+        System.out.println("- Nome do arquivo: " + sqsMessage.getRecords().get(0).getS3().getObject().getKey());
+        System.out.println("- Nome do evento: " + sqsMessage.getRecords().get(0).getS3().getConfigurationId());
     }
 
 }

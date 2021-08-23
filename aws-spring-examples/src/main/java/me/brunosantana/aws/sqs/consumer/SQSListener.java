@@ -1,9 +1,9 @@
-package me.brunosantana.aws.sqs;
+package me.brunosantana.aws.sqs.consumer;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import me.brunosantana.aws.sqs.dto.Message;
+import me.brunosantana.aws.sqs.consumer.dto.Message;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.messaging.handler.annotation.Headers;
 import org.springframework.messaging.handler.annotation.Payload;

@@ -1,5 +1,5 @@
 
-package me.brunosantana.aws.sqs.dto;
+package me.brunosantana.aws.sqs.consumer.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

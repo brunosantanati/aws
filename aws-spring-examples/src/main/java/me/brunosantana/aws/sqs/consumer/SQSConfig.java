@@ -1,4 +1,4 @@
-package me.brunosantana.aws.sqs;
+package me.brunosantana.aws.sqs.consumer;
 
 import com.amazon.sqs.javamessaging.ProviderConfiguration;
 import com.amazon.sqs.javamessaging.SQSConnectionFactory;

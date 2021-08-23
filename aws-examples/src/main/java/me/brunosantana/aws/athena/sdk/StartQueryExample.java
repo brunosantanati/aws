@@ -61,7 +61,7 @@ public class StartQueryExample {
             StartQueryExecutionRequest startQueryExecutionRequest = StartQueryExecutionRequest.builder()
                     .queryString(ExampleConstants.ATHENA_SAMPLE_QUERY)
                     .queryExecutionContext(queryExecutionContext)
-                    .   resultConfiguration(resultConfiguration)
+                    .resultConfiguration(resultConfiguration)
                     .build();
 
             StartQueryExecutionResponse startQueryExecutionResponse = athenaClient.startQueryExecution(startQueryExecutionRequest);

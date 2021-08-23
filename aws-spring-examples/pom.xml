@@ -17,6 +17,7 @@
 		<java.version>11</java.version>
 		<aws.sqs.messaging>1.0.4</aws.sqs.messaging>
 		<aws.sdk.version>1.12.44</aws.sdk.version>
+		<guava.version>23.5-jre</guava.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -46,6 +47,12 @@
 			<groupId>com.amazonaws</groupId>
 			<artifactId>amazon-sqs-java-messaging-lib</artifactId>
 			<version>${aws.sqs.messaging}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
 		</dependency>
 
 	</dependencies>

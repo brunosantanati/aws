@@ -20,7 +20,8 @@ public class SQSListener {
 
         try {
             System.out.println("SQSListener.onMessage: " + message);
-            //BillingDTO messageDTO = mapper.readValue(message, BillingDTO.class);
+            TestDTO dto = mapper.readValue(message, TestDTO.class);
+            System.out.println("DTO: " + dto);
 
         } catch (Exception e) {
             System.out.println("erro em SQSListener.onMessage " + e.getMessage());

@@ -18,7 +18,7 @@ public class MessageController {
     SQSNotifier notifier;
 
     @RequestMapping(method = RequestMethod.POST)
-    public void send(@RequestBody String message) {
+    public void send(@RequestBody TestDTO message) {
         notifier.sentToQueue(myQueueName, message);
     }
 }

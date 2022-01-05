@@ -15,6 +15,7 @@
 	<description>AWS Examples</description>
 	<properties>
 		<java.version>11</java.version>
+		<spring.cloud.aws.version>2.2.6.RELEASE</spring.cloud.aws.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -27,6 +28,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-aws-messaging</artifactId>
+			<version>${spring.cloud.aws.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

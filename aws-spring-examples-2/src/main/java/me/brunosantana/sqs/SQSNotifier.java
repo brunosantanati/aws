@@ -22,7 +22,7 @@ public class SQSNotifier {
 
         boolean send = messageChannel.send(MessageBuilder.withPayload(message).build());
 
-        System.out.println("[Categorization] - Enviado para a Fila - " + queueName + ": " + send);
+        System.out.println("Enviado para a Fila - " + queueName + ": " + send);
     }
 
     public void sentToQueue(String queueName, Object obj){
@@ -34,13 +34,13 @@ public class SQSNotifier {
         try {
             jsonPayload = new ObjectMapper().writeValueAsString(obj);
         } catch (JsonProcessingException e) {
-            System.out.println("[Categorization] - erro em SQSNotifier.sentToQueue " + e.getMessage());
-            System.out.println("[Categorization] - stack trace " + e);
+            System.out.println("erro em SQSNotifier.sentToQueue " + e.getMessage());
+            System.out.println("stack trace " + e);
             throw new RuntimeException(e.getMessage());
         }
 
         boolean send = messageChannel.send(MessageBuilder.withPayload(jsonPayload).build());
 
-        System.out.println("[Categorization] - Enviado para a Fila - " + queueName + ": " + send);
+        System.out.println("Enviado para a Fila - " + queueName + ": " + send);
     }
 }
